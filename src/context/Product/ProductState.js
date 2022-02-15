@@ -28,6 +28,11 @@ const ProductState = (props) => {
             const response = await axios({
                 method: "get",
                 url: `https://www.testbackendmeli.bybcortinas.com/search?query=${wordSearch}`,
+                mode: 'no-cors',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                },
             });
             let filter_results = Object.values(response.data.results).filter((data,key)=>{
                  return key < 4;
